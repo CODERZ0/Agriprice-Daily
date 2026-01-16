@@ -8,8 +8,25 @@ dotenv.config();
 
 const app = express();
 
+// ✅ CORS FIX (IMPORTANT FOR PHONE + VERCEL)
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5000",
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // allow Postman/mobile
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error("❌ CORS blocked: " + origin));
+    },
+    credentials: true,
+  })
+);
+
 // ✅ MIDDLEWARE
-app.use(cors());
 app.use(express.json());
 
 // ✅ ROUTES IMPORTS
