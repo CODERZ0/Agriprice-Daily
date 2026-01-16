@@ -43,9 +43,7 @@ export default function Signup() {
             <UserPlus className="text-white" />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold text-emerald-900">
-              Sign Up
-            </h1>
+            <h1 className="text-3xl font-extrabold text-emerald-900">Sign Up</h1>
             <p className="text-emerald-700">Create your AgriPrice account</p>
           </div>
         </div>
