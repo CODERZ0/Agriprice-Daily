@@ -1,0 +1,16 @@
+import mongoose from "mongoose";
+
+const requestSchema = new mongoose.Schema(
+  {
+    type: { type: String, enum: ["BUY", "SELL"], required: true },
+    commodity: { type: String, required: true },
+    qty: { type: String, required: true },
+    price: { type: String, required: true },
+    location: { type: String, required: true },
+    status: { type: String, default: "OPEN" }, // OPEN | APPROVED | REJECTED
+    createdBy: { type: String, default: "anonymous" },
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model("Request", requestSchema);
