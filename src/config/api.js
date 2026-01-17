@@ -1,4 +1,4 @@
 // src/config/api.js
 
-export const API =
-  (import.meta.env.VITE_API_URL || "").trim() || "http://localhost:5000";
+// ✅ Hardcode backend URL (works on PC + Phone + everywhere)
+export const API = "https://agriprice-daily.onrender.com";
