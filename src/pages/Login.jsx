@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { User, Lock, LogIn } from "lucide-react";
-import { API } from "../config/api";
+import { API } from "../config/api"; // ✅ IMPORTANT
 
 export default function Login() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState(""); // username OR email
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
@@ -45,9 +45,7 @@ export default function Login() {
           />
           <div>
             <h1 className="text-3xl font-extrabold text-emerald-900">Login</h1>
-            <p className="text-emerald-700">
-              Secure access for Alerts & Marketplace
-            </p>
+            <p className="text-emerald-700">Secure access for Alerts & Marketplace</p>
           </div>
         </div>
 
@@ -59,10 +57,7 @@ export default function Login() {
 
         <form onSubmit={onSubmit} className="space-y-5">
           <div className="relative">
-            <User
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600"
-              size={20}
-            />
+            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600" size={20} />
             <input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -73,10 +68,7 @@ export default function Login() {
           </div>
 
           <div className="relative">
-            <Lock
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600"
-              size={20}
-            />
+            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600" size={20} />
             <input
               type="password"
               value={password}
