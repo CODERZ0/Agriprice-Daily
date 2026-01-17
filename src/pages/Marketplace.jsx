@@ -11,6 +11,7 @@ import {
   Star,
   Pencil,
   Trash2,
+  ArrowLeft, // ✅ ADDED
 } from "lucide-react";
 
 /* ✅ IMPORT YOUR LOCAL DEMO IMAGES */
@@ -241,15 +242,29 @@ export default function Marketplace() {
       {/* TOP BAR */}
       <header className="relative sticky top-0 z-40 bg-white/75 backdrop-blur border-b border-emerald-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-          <div>
-            <div className="text-3xl font-black text-emerald-950 flex items-center gap-2">
-              Marketplace <span className="text-lime-600">✧</span>
-            </div>
-            <div className="text-emerald-700 font-semibold">
-              Buy • Sell • Chat with traders
+          
+          {/* ✅ LEFT SIDE (Back + Title) */}
+          <div className="flex items-center gap-4">
+            {/* ✅ BACK BUTTON ADDED */}
+            <button
+              onClick={() => navigate(-1)}
+              className="px-4 py-2 rounded-2xl border border-emerald-200 bg-white font-black text-emerald-900 hover:bg-emerald-50 transition flex items-center gap-2 shadow-sm"
+            >
+              <ArrowLeft size={18} className="text-emerald-700" />
+              Back
+            </button>
+
+            <div>
+              <div className="text-3xl font-black text-emerald-950 flex items-center gap-2">
+                Marketplace <span className="text-lime-600">✧</span>
+              </div>
+              <div className="text-emerald-700 font-semibold">
+                Buy • Sell • Chat with traders
+              </div>
             </div>
           </div>
 
+          {/* RIGHT SIDE */}
           <div className="flex gap-3">
             <button
               onClick={() => navigate("/inbox")}
@@ -270,6 +285,7 @@ export default function Marketplace() {
         </div>
       </header>
 
+      {/* ✅ Rest of your code unchanged */}
       <main className="relative max-w-6xl mx-auto px-6 py-8">
         {/* Filters */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
