@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { UserPlus, User, Mail, Lock } from "lucide-react";
-import { API } from "../config/api"; // ✅ IMPORTANT
+import { API } from "../config/api";  // ✅ IMPORTANT
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -26,6 +26,7 @@ export default function Signup() {
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
+
       navigate("/dashboard");
     } catch (err) {
       setMsg(err?.response?.data?.message || "Signup failed");
@@ -42,7 +43,9 @@ export default function Signup() {
             <UserPlus className="text-white" />
           </div>
           <div>
-            <h1 className="text-3xl font-extrabold text-emerald-900">Sign Up</h1>
+            <h1 className="text-3xl font-extrabold text-emerald-900">
+              Sign Up
+            </h1>
             <p className="text-emerald-700">Create your AgriPrice account</p>
           </div>
         </div>
@@ -55,7 +58,10 @@ export default function Signup() {
 
         <form onSubmit={onSubmit} className="space-y-5">
           <div className="relative">
-            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600" size={20} />
+            <User
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600"
+              size={20}
+            />
             <input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -66,7 +72,10 @@ export default function Signup() {
           </div>
 
           <div className="relative">
-            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600" size={20} />
+            <Mail
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600"
+              size={20}
+            />
             <input
               type="email"
               value={email}
@@ -78,7 +87,10 @@ export default function Signup() {
           </div>
 
           <div className="relative">
-            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600" size={20} />
+            <Lock
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-emerald-600"
+              size={20}
+            />
             <input
               type="password"
               value={password}
@@ -99,7 +111,10 @@ export default function Signup() {
 
         <div className="mt-6 text-center font-semibold text-sm">
           Already have an account?{" "}
-          <Link to="/login" className="text-emerald-700 hover:text-emerald-900 underline">
+          <Link
+            to="/login"
+            className="text-emerald-700 hover:text-emerald-900 underline"
+          >
             Login
           </Link>
         </div>
